@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html class="no-js" ng-app="app">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title></title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+
+        <link rel="apple-touch-icon" sizes="57x57" href="./apple-touch-icon-57x57.png">
+        <link rel="apple-touch-icon" sizes="72x72" href="./apple-touch-icon-72x72.png">
+        <link rel="apple-touch-icon" sizes="60x60" href="./apple-touch-icon-60x60.png">
+        <link rel="apple-touch-icon" sizes="76x76" href="./apple-touch-icon-76x76.png">
+        <link rel="icon" type="image/png" href="./favicon-32x32.png" sizes="32x32">
+        <link rel="icon" type="image/png" href="./favicon-16x16.png" sizes="16x16">
+        <meta name="msapplication-TileColor" content="#da532c">
+
+        <link rel="stylesheet" href="./css/normalize.css">
+        <link rel="stylesheet" href="./css/main.css">
+        <link rel="stylesheet" href="./css/style.css">
+        <link rel="stylesheet" href="./css/pygment_trac.css">
+    </head>
+
+  <body ng-controller="ApplicationCtrl">
+    <div class="wrapper">
+      <header>
+        <h1><img src="http://www.gravatar.com/avatar/edfae171263d23681bfbadaf877b71a1.png" alt="durango"></h1>
+        <p>Durango</p>
+        <p class="view"><a href="http://github.com/durango">View Durango's GitHub</a></p>
+      </header>
+      <section>
+        <h1>GitHub Repositories</h1>
+        <table>
+            <thead>
+                <tr>
+                    <th>Repo</th>
+                    <th>Stars</th>
+                    <th>Forks</th>
+                </tr>
+            </thead>
+            <tbody ng-cloak ng-repeat="(name, repo) in repos">
+                <tr>
+                    <td><strong>{{name}}</strong></td>
+                    <td><iframe ng-src="{{repo.star}}" allowtransparency="true" frameborder="0" scrolling="0" width="110" height="20"></iframe></td>
+                    <td><iframe ng-src="{{repo.forks}}" allowtransparency="true" frameborder="0" scrolling="0" width="95" height="20"></iframe></td>
+                </tr>
+                <tr>
+                    <td colspan="3">{{repo.description}}</td>
+                </tr>
+                <tr>
+                    <td colspan="3">
+                        <img ng-src="http://img.shields.io/travis/{{name}}.svg">
+                        <a href="https://david-dm.org/{{name}}#info=dependencies" title="Dependency status"><img ng-src="http://david-dm.org/{{name}}/status.svg?theme=shields.io">
+                        <a href="https://david-dm.org/{{name}}#info=devDependencies" title="Dependency status"><img ng-src="http://david-dm.org/{{name}}/dev-status.svg?theme=shields.io"></a>
+                    </td>
+                </tr>
+                <tr>
+                    <td height="20" colspan="3"></td>
+                </tr>
+            </tbody>
+        </table>
+     </section>
+      <footer>
+        <p><small>Copyright &copy; 2014</small></p>
+      </footer>
+    </div>
+        <script src="./js/scale.fix.js"></script>
+        <script src="http://cdnjs.cloudflare.com/ajax/libs/angular.js/1.2.0rc3/angular.min.js"></script>
+        <script src="./js/app.js"></script>
+    </body>
+</html>
